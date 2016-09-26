@@ -1,0 +1,80 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PBS-COVE-API",
+		"_postman_id": "d6f6247d-3fba-6966-bb48-e75aa3880a57",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "COVE API - BasicAuthExample",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{basicauthkey}}",
+						"password": "{{basicauthsecret}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://api.pbs.org/cove/v1/videos",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "COVE API - MvaultWindowingExample",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{basicauthkey}}",
+						"password": "{{basicauthsecret}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://api.pbs.org/cove/v1/videos/?fields=windows&windows=all_members&availability=Available&filter_tp_media_object_id=2332138497",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "COVE API - DigestAuthExample",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": "// This generates a signature for a COVE API request, given a url and key/secret\n\n// generate date, timestamp, nonce - truth be known: none of this matters\n// to the backend - you could use any values for this stuff\nvar timestamp = Date.now()\nvar randomNum = Math.floor(Math.random()*9000) + 1000;\nvar nonce = CryptoJS.SHA1(randomNum.toString()).toString(CryptoJS.enc.Hex);\n\n// get and set incoming params\nvar sourceUrl = request.url.trim();\nvar consumerKey = environment['consumer_key'];\nvar consumerSecret = environment['consumer_secret'];\n\n// append params to url\nvar appendedUrl = sourceUrl + \"&timestamp=\" + timestamp + \"&nonce=\" + nonce + \"&consumer_key=\" + consumerKey;\n\nfunction getDictFromQS(qs) {\n    var args = {};\n    var vars = qs.split('&');\n    for (var i = 0; i < vars.length; i++) {\n        var pair = vars[i].split('=');\n        args[pair[0]] = pair[1];\n    }\n    return args;\n}\n\n// make dict out of query string, sort\nbase_url = appendedUrl.split('?')[0];\nqs = appendedUrl.split('?')[1];\nqs_dict = getDictFromQS(qs);\n\n// sort dict\nvar sorted_qs_dict={};\nObject.keys(qs_dict).sort().forEach(function(key) {\n        sorted_qs_dict[key] = qs_dict[key];\n  });\n\n// generate sorted query string\nvar new_qs = '';\nfunction generateSortedQS(sorted_dict) {\n    for (var k in sorted_dict) {\n        new_qs += k + '=' + sorted_dict[k] + '&';\n    }\n    new_qs = new_qs.slice(0, -1);\n    return new_qs;\n}\n\nsorted_qs = generateSortedQS(sorted_qs_dict);\nsorted_qs = sorted_qs.replace(\"=undefined&\",'');\n\n// prep string for hashing\nsorted_url_for_hashing = base_url + '?' + sorted_qs;\nstr_for_hashing = 'GET' + sorted_url_for_hashing + timestamp + consumerKey + nonce;\n\nvar message = str_for_hashing.toString(CryptoJS.enc.Utf8);\nvar secret = consumerSecret.toString(CryptoJS.enc.Utf8);\n\n// generate signature hash and add to URL\nvar hashed_sig = CryptoJS.HmacSHA1(message, secret);\nvar hexed_hashed_sig = CryptoJS.enc.Hex.stringify(hashed_sig);\nvar final_url = sorted_url_for_hashing + '&' + 'signature=' + hexed_hashed_sig\n\n// save to the env\npostman.setEnvironmentVariable(\"final\", JSON.stringify(final_url));\n\n"
+					}
+				}
+			],
+			"request": {
+				"url": "http://api.pbs.org/cove/v1/groups/?fields=videos__title%2Cvideos__type%2Cvideos__short_description%2Cvideos__long_description%2Cvideos__episode_url%2Cvideos__tp_media_object_id%2Cvideos__nola_episode%2Cvideos__nola_root%2Cvideos__program__title%2Cvideos__program__website%2Cvideos__availability%2Cvideos__available_datetime%2Cvideos__expire_datetime%2Cvideos__associated_images%2Cvideos__rating%2Cvideos__buy_dvd_link%2Cvideos__itunes_link%2Cvideos__donate_url%2Cvideos__mediafiles__video_data_url%2Cvideos__mediafiles__video_encoding%2Cvideos__mediafiles__length_mseconds%2Cvideos__program__associated_images%2Cvideos__program__short_description%2Cvideos__program__long_description%2Cvideos__program__nola_root%2Cvideos__categories%2Cvideos__program__shop_url%2Cvideos__program__donate_url%2Cvideos__airdate&filter_name=ipad_spotlight&format=json",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
