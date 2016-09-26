@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PBS-Sodor-Localization-API",
+		"_postman_id": "91b32ce6-d2f4-b719-c80b-00872a5d1dec",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Localization API - PublicCallsignByZip",
+			"request": {
+				"url": "http://services.pbs.org/callsigns/zip/{{zip}}.json",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Localization API - PublicCallsignByState",
+			"request": {
+				"url": "http://services.pbs.org/stations/state/{{state}}.json",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Localization API - PublicCallsignByIP",
+			"request": {
+				"url": "http://services.pbs.org/zipcodes/ip/{{IP}}.json",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

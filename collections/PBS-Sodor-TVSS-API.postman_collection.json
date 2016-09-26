@@ -1,0 +1,181 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PBS-Sodor-TVSS-API",
+		"_postman_id": "06956f1e-2cb2-e029-bd1e-e6165c507009",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TVSS API - PrivateTodaysListingsByCallsign",
+			"request": {
+				"url": "http://services.pbs.org/tvss/{{callsign}}/today/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-PBSAUTH",
+						"value": "{{authkey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PrivateListingsByDateCallsign",
+			"request": {
+				"url": " http://services.pbs.org/tvss/{{callsign}}/day/{{date}}/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-PBSAUTH",
+						"value": "{{authkey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PrivateListingsByCallsignProgramID",
+			"request": {
+				"url": "http://services.pbs.org/tvss/{{callsign}}/upcoming/program/{{program_id}}/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-PBSAUTH",
+						"value": "{{authkey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PrivateListingsByCallsignShowID",
+			"request": {
+				"url": "http://services.pbs.org/tvss/{{callsign}}/upcoming/show/{{show_id}}/ ",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-PBSAUTH",
+						"value": "{{authkey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PublicListingSearch",
+			"request": {
+				"url": " http://services.pbs.org/tvss/{{callsign}}/search/{{terms}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PublicListingSearchByCallsign",
+			"request": {
+				"url": "http://services.pbs.org/tvss/search/{{terms}}/ ",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PublicCallsignChannels",
+			"request": {
+				"url": "http://services.pbs.org/tvss/{{callsign}}/channels/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PublicChannelsByCallsignZip",
+			"request": {
+				"url": "http://services.pbs.org/tvss/{{callsign}}/channels/zip/{{zip}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PublicStationList",
+			"request": {
+				"url": "http://services.pbs.org/tvss/programs/ ",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TVSS API - PrivateKidsListingsByCallsign",
+			"request": {
+				"url": "http://services.pbs.org/tvss/{{callsign}}/today/kids/ ",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-PBSAUTH",
+						"value": "{{authkey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
