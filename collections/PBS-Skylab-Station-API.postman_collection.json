@@ -1,0 +1,85 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PBS-Skylab-Station-API",
+		"_postman_id": "9015d87b-ace9-f349-bf23-9d3a847f9b0a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Station API - PublicStationListExample",
+			"request": {
+				"url": "https://station.services.pbs.org/api/public/v1/stations/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Station API - PrivateStationListExample",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{basicauthkey}}",
+						"password": "{{basicauthsecret}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://station.services.pbs.org/api/v1/stations/ ",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Station API - PublicStationFilterCallsign",
+			"request": {
+				"url": "https://station.services.pbs.org/api/public/v1/stations/?call_sign={{callsign}}",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Station API - PrivateStationFilterCallsign",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "{{basicauthkey}}",
+						"password": "{{basicauthsecret}}",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "https://station.services.pbs.org/api/v1/stations/?call_sign=WETA",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
