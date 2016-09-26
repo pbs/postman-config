@@ -16,11 +16,11 @@ Ideally, for ease of use, the name of a Collection matches the name of its usabl
 
 #### Collections: 
 
-BasicAuth (internal use) - example of Basic Auth for internal use
-MvaultWindowing - example of filtering Mvault content
-DigestAuth - example of Digest Auth-ish URL signing
+* BasicAuth (internal use) - example of Basic Auth for internal use
+* MvaultWindowing - example of filtering Mvault content
+* DigestAuth - example of Digest Auth-ish URL signing
 
 #### Environemnts
 
-BasicAuth-Template - defined params for basic auth user/pass
-DigestAuth-Template  - defined params for digest auth key/secret
+* BasicAuth-Template - defined params for basic auth user/pass
+* DigestAuth-Template  - defined params for digest auth key/secret
