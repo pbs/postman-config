@@ -20,7 +20,7 @@ Ideally, for ease of use, the name of a Collection matches the name of its usabl
 * MvaultWindowing - example of filtering Mvault content
 * DigestAuth - example of Digest Auth-ish URL signing
 
-#### Environemnts
+#### Environments
 
 * BasicAuth-Template - defined params for basic auth user/pass
 * DigestAuth-Template  - defined params for digest auth key/secret
